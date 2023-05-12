@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Listagem de Pessoas</title>
+</head>
+<body>
+   <h1>Listagem</h1>
+   
+ <style>
+
+.tabela{
+border: 2px solid black;
+
+background-color: green;
+}
+</style>
+<body>
+
+<table class="tabela">
+   <tr>
+       <th>Id</th>
+       <th>Nome</th>
+       <th>Data Nascimento</th>
+       <th>Sexo</th>
+   </tr>
+   <tr th:each="pessoa: ${pessoas}">
+       <td th:text="${pessoa.id}"></td>
+       <td th:text="${pessoa.nome}"></td>
+       <td th:text="${pessoa.dataNascimento}"></td>
+       <td th:switch="${pessoa.sexo.name()}">
+          <span th:case="'M'" th:text="Masculino"></span>
+          <span th:case="'F'" th:text="Feminino"></span>
+       </td>
+   </tr>
+
+</table>
+</body>
+</html>
